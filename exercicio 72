@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int codigo;
+    float preco, maiorPreco = 0, somaPrecos = 0;
+    int i;
+
+    for (i = 1; i <= 15; i++) {
+        printf("Digite o código do produto %d: ", i);
+        scanf("%d", &codigo);
+
+        printf("Digite o preço do produto %d: ", i);
+        scanf("%f", &preco);
+
+        if (preco > maiorPreco) {
+            maiorPreco = preco;
+        }
+
+        somaPrecos += preco;
+    }
+
+    float media = somaPrecos / 15;
+
+    printf("\nMaior preço: %.2f\n", maiorPreco);
+    printf("Média aritmética dos preços: %.2f\n", media);
+
+    return 0;
+}
