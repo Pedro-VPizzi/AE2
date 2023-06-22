@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define DIAS_NO_ANO 365
+
+int main() {
+    float temperatura[DIAS_NO_ANO];
+    float menorTemperatura, maiorTemperatura, mediaAnual, somaTemperaturas = 0.0;
+    int numDiasAbaixoMedia = 0;
+
+    for (int i = 0; i < DIAS_NO_ANO; i++) {
+        printf("Digite a temperatura media do dia %d: ", i + 1);
+        scanf("%f", &temperatura[i]);
+        somaTemperaturas += temperatura[i];
+    }
+
+    menorTemperatura = temperatura[0];
+    maiorTemperatura = temperatura[0];
+    for (int i = 1; i < DIAS_NO_ANO; i++) {
+        if (temperatura[i] < menorTemperatura) {
+            menorTemperatura = temperatura[i];
+        }
+        if (temperatura[i] > maiorTemperatura) {
+            maiorTemperatura = temperatura[i];
+        }
+    }
+
+    mediaAnual = somaTemperaturas / DIAS_NO_ANO;
+
+    for (int i = 0; i < DIAS_NO_ANO; i++) {
+        if (temperatura[i] < mediaAnual) {
+            numDiasAbaixoMedia++;
+        }
+    }
+
+    printf("Menor temperatura do ano: %.2f\n", menorTemperatura);
+    printf("Maior temperatura do ano: %.2f\n", maiorTemperatura);
+    printf("Temperatura media anual: %.2f\n", mediaAnual);
+    printf("Numero de dias com temperatura abaixo da media anual: %d\n", numDiasAbaixoMedia);
+
+    return 0;
+}
