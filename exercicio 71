@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int quantidade, i;
+    float numero, maior = 0, soma = 0, media;
+
+    printf("Digite a quantidade de números: ");
+    scanf("%d", &quantidade);
+
+    for (i = 1; i <= quantidade; i++) {
+        printf("Digite o número %d: ", i);
+        scanf("%f", &numero);
+
+        soma += numero;
+
+        if (numero > maior) {
+            maior = numero;
+        }
+    }
+
+    media = soma / quantidade;
+
+    printf("O maior número é: %.2f\n", maior);
+    printf("A média dos números é: %.2f\n", media);
+
+    return 0;
+}
